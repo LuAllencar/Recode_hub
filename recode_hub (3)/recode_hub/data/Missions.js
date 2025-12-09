@@ -1,0 +1,182 @@
+// data/missions.js
+// Sistema de missões e progressão
+
+export const missionCategories = [
+  { id: 'all', name: 'Todas', icon: '📋' },
+  { id: 'main', name: 'Principais', icon: '⭐' },
+  { id: 'side', name: 'Secundárias', icon: '📌' },
+  { id: 'daily', name: 'Diárias', icon: '🔄' },
+  { id: 'completed', name: 'Concluídas', icon: '✅' },
+];
+
+export const missions = [
+  {
+    id: 1,
+    title: 'Primeiro Contato',
+    description: 'Construa seu primeiro Drone Scout e explore a área inicial.',
+    category: 'main',
+    difficulty: 'easy',
+    icon: '🚁',
+    objectives: [
+      { id: 1, text: 'Coletar 10 unidades de Metal', completed: true, current: 10, target: 10 },
+      { id: 2, text: 'Construir Drone Scout', completed: true, current: 1, target: 1 },
+      { id: 3, text: 'Escanear área inicial', completed: false, current: 0, target: 1 },
+    ],
+    rewards: {
+      xp: 100,
+      coins: 50,
+      items: { bateria: 5 },
+    },
+    status: 'active', // 'locked', 'active', 'completed'
+    progress: 66, // porcentagem
+    timeLimit: null,
+    unlockLevel: 1,
+  },
+  {
+    id: 2,
+    title: 'Restauração Inicial',
+    description: 'Use o Purificador de Água para começar a restaurar o ambiente.',
+    category: 'main',
+    difficulty: 'medium',
+    icon: '💧',
+    objectives: [
+      { id: 1, text: 'Construir Purificador de Água', completed: false, current: 0, target: 1 },
+      { id: 2, text: 'Purificar 100L de água', completed: false, current: 0, target: 100 },
+      { id: 3, text: 'Plantar 5 árvores', completed: false, current: 0, target: 5 },
+    ],
+    rewards: {
+      xp: 250,
+      coins: 100,
+      items: { cristal: 1 },
+    },
+    status: 'active',
+    progress: 0,
+    timeLimit: null,
+    unlockLevel: 2,
+  },
+  {
+    id: 3,
+    title: 'Agricultura Sustentável',
+    description: 'Estabeleça um sistema de cultivo automatizado.',
+    category: 'main',
+    difficulty: 'medium',
+    icon: '🌾',
+    objectives: [
+      { id: 1, text: 'Construir Robo Agricultor', completed: false, current: 0, target: 1 },
+      { id: 2, text: 'Plantar 20 cultivos', completed: false, current: 0, target: 20 },
+      { id: 3, text: 'Colher primeira safra', completed: false, current: 0, target: 1 },
+    ],
+    rewards: {
+      xp: 300,
+      coins: 150,
+      items: { madeira: 50 },
+    },
+    status: 'locked',
+    progress: 0,
+    timeLimit: null,
+    unlockLevel: 3,
+  },
+  {
+    id: 4,
+    title: 'Energia Limpa',
+    description: 'Instale painéis solares e estabeleça rede energética.',
+    category: 'main',
+    difficulty: 'hard',
+    icon: '⚡',
+    objectives: [
+      { id: 1, text: 'Construir Estação Solar', completed: false, current: 0, target: 1 },
+      { id: 2, text: 'Gerar 1000kW de energia', completed: false, current: 0, target: 1000 },
+      { id: 3, text: 'Conectar 5 dispositivos', completed: false, current: 0, target: 5 },
+    ],
+    rewards: {
+      xp: 500,
+      coins: 300,
+      items: { chip: 10, cristal: 2 },
+    },
+    status: 'locked',
+    progress: 0,
+    timeLimit: null,
+    unlockLevel: 5,
+  },
+  {
+    id: 5,
+    title: 'Coletor de Recursos',
+    description: 'Colete recursos espalhados pela zona inicial.',
+    category: 'side',
+    difficulty: 'easy',
+    icon: '📦',
+    objectives: [
+      { id: 1, text: 'Coletar 50 Metal', completed: true, current: 50, target: 50 },
+      { id: 2, text: 'Coletar 30 Madeira', completed: true, current: 30, target: 30 },
+      { id: 3, text: 'Coletar 10 Chips', completed: false, current: 8, target: 10 },
+    ],
+    rewards: {
+      xp: 150,
+      coins: 75,
+    },
+    status: 'active',
+    progress: 88,
+    timeLimit: null,
+    unlockLevel: 1,
+  },
+  {
+    id: 6,
+    title: 'Desafio Diário: Codificação',
+    description: 'Escreva 50 linhas de código hoje.',
+    category: 'daily',
+    difficulty: 'easy',
+    icon: '💻',
+    objectives: [
+      { id: 1, text: 'Escrever 50 linhas de código', completed: false, current: 23, target: 50 },
+    ],
+    rewards: {
+      xp: 50,
+      coins: 25,
+    },
+    status: 'active',
+    progress: 46,
+    timeLimit: '23:59:59', // Tempo restante
+    unlockLevel: 1,
+  },
+  {
+    id: 7,
+    title: 'Desafio Diário: Exploração',
+    description: 'Explore 3 novas áreas do mapa.',
+    category: 'daily',
+    difficulty: 'easy',
+    icon: '🗺️',
+    objectives: [
+      { id: 1, text: 'Explorar novas áreas', completed: false, current: 1, target: 3 },
+    ],
+    rewards: {
+      xp: 50,
+      coins: 25,
+    },
+    status: 'active',
+    progress: 33,
+    timeLimit: '23:59:59',
+    unlockLevel: 1,
+  },
+  {
+    id: 8,
+    title: 'Zona Norte Restaurada',
+    description: 'Complete a restauração total da Zona Norte.',
+    category: 'main',
+    difficulty: 'easy',
+    icon: '🌱',
+    objectives: [
+      { id: 1, text: 'Purificar água da região', completed: true, current: 1, target: 1 },
+      { id: 2, text: 'Plantar 50 árvores', completed: true, current: 50, target: 50 },
+      { id: 3, text: 'Remover toxinas do solo', completed: true, current: 1, target: 1 },
+    ],
+    rewards: {
+      xp: 200,
+      coins: 100,
+      items: { codigo: 1 },
+    },
+    status: 'completed',
+    progress: 100,
+    completedDate: '2024-12-08T09:15:00',
+    unlockLevel: 2,
+  },
+];
